@@ -6,9 +6,16 @@
 //Because nums[0] + nums[1] = 2 + 7 = 9,
 //return [0, 1].
 
-/**
- * Note: The returned array must be malloced, assume caller calls free().
+/* Note: The returned array must be malloced, assume caller calls free().
  */
+
+/*reminder:
+ 1.read carefully of the question it request to malloc the return arrey, only dynamic arrey can be malloc and this kind of 
+ arrey must to be a pointer.
+ 2.pay attention the highest limit number i and j go to and think about why
+ 3.break can only jump out of one cycle so pay attetion where to put the break.
+ */
+ 
 int* twoSum(int* nums, int numsSize, int target) {
     int i,j;
     int flag = 0;
