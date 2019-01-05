@@ -1,0 +1,39 @@
+/*You're given strings J representing the types of stones that are jewels, and S representing the stones you have.  Each 
+character in S is a type of stone you have.  You want to know how many of the stones you have are also jewels.
+
+The letters in J are guaranteed distinct, and all characters in J and S are letters. Letters are case sensitive, so "a" is
+considered a different type of stone from "A".
+
+Example 1:
+Input: J = "aA", S = "aAAbbbb"
+Output: 3
+
+Example 2:
+Input: J = "z", S = "ZZ"
+Output: 0
+
+Note:
+S and J will consist of letters and have length at most 50.
+The characters in J are distinct.
+*/
+
+/*reminder:
+1.do not need to create new array just write as j[a] and s[b]
+2.do not just use the number 50 as the array' s limit, if there are arrays, no matter how long of the array just use '\0'
+to judge if it goes to the end
+*/
+
+int numJewelsInStones(char* j, char* s) {
+    int a,b,count = 0;
+    for( a = 0; j[a] != '\0'; a++)
+    {
+        for(b = 0; s[b] != '\0'; b++)
+        {
+             if(j[a] == s[b]){
+                 count++;
+             }
+        }
+    }
+    return count;
+    
+}
