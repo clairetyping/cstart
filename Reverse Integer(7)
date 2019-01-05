@@ -20,6 +20,7 @@ overflows.
 /*reminder:
 1.pay attention to the overflow problem,judge the number when it about to close to the limit.
 2.use flag to mark if number is negative or positive 
+*/
 
 int reverse(int x) {
  int i = 0;
