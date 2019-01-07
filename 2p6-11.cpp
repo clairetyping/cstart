@@ -1,3 +1,5 @@
+/*use a two-dimensional array to count 5 students record in three courses.
+*/
 #include<stdio.h>
 int max_of(int vc[5][3],int no)
 {
