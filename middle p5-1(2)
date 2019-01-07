@@ -1,0 +1,73 @@
+/*the computer gives a number in 4-digit and player type in the number in reverse 
+this one use string way to solve the problem
+*/
+/*reminder:
+1.when passing the string parameter to another function, the function who receives the parameter should be set as char*,becase 
+char stands for one letter.
+2.it will be the different way to reverse an array in integer type and string.
+3.it will be the different way to compare an array in integer type and string.when it comes to string use strcmp is the easiest 
+way.
+*/
+
+#include<time.h>
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#define MAX_STAGE 10
+int sleepb(unsigned long x)
+{
+    clock_t c1 = clock(), c2;
+    do{
+        if((c2 = clock()) == (clock_t) - 1) //wrong
+            return 0;
+    }while(1000.0 * (c2 - c1) / CLOCKS_PER_SEC < x);
+    return 1;
+}
+char* reverseb(char* x)
+{
+    int i;
+    char *temp = (char*)malloc(sizeof(char)*4);
+    for(i = 0; i < 4; i++)
+    {
+        temp[3-i] = x[i];
+    }
+    return temp;
+}
+int main(void) {
+    int i, stage;
+    char* temp;
+    int success = 0;
+    clock_t start, end;
+    srand(time(NULL));
+    printf("记忆训练开始。\n");
+
+    start = clock();
+    for (stage = 0; stage < MAX_STAGE; stage++) {
+        char no[4 + 1];
+        char x[4 * 2];
+
+        no[0] = '1' + rand() % 9;
+        for (i = 1; i < 4; i++)
+            no[i] = '0' + rand() % 10;
+        no[4] = '\0';
+
+        printf("%s", no);
+        fflush(stdout);
+        sleepb(1000);
+
+        printf("\r请输入： ");
+        fflush(stdout);
+        scanf("%s", &x);
+        temp = reverseb(x);
+        if (strcmp(no,temp))
+            printf("\a回答错误。\n");
+        else {
+            printf("\a回答正确。\n");
+            success++;
+        }
+    }
+    end = clock();
+    printf("%d次中答对了%d次。\n", MAX_STAGE, success);
+    printf("用时%.1f秒。\n", (double) (end - start) / CLOCKS_PER_SEC);
+    return 0;
+}
