@@ -1,4 +1,5 @@
 #include<stdio.h>
+//print a triangle tree
 int main(void)
 {
     int x,y,ln;
