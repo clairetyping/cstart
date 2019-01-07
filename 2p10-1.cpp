@@ -1,4 +1,5 @@
 #include<stdio.h>
+//print out the day before and after a certain day
 void yesterday(int *y, int *m, int *d)
 {
     if(*d == 1)
