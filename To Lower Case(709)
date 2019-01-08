@@ -1,0 +1,35 @@
+/*Implement function ToLowerCase() that has a string parameter str, and returns the same string in lowercase.
+
+Example 1:
+Input: "Hello"
+Output: "hello"
+
+Example 2:
+Input: "here"
+Output: "here"
+
+Example 3:
+Input: "LOVELY"
+Output: "lovely"
+*/
+
+/*reminder:
+1.it should be malloced a new str return and the length of the str should be strlen(s)+1
+2.if the letter is upper,it can be change to the lower letter by changing the only different one-bit binary number and the same
+numbers remain. the way is to use exclusive OR(two same make 1 and two different make 0)with 32(00100000),like A(01000001)^
+32(00100000) = a(01100001)
+*/
+
+char* toLowerCase(char* s) {
+    int i;
+    char* str =(char *)malloc(sizeof(char)*(strlen(s)+1)) ;
+    for(i = 0; s[i] != 0 ;i++)
+    {
+        if(s[i] >= 'A' && s[i] <= 'Z')
+        str[i] = s[i] ^ 32;
+        else
+        str[i] = s[i];  
+    }
+    str[i] = '\0';
+    return  str;
+}
