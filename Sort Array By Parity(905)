@@ -1,0 +1,53 @@
+/*Given an array A of non-negative integers, return an array consisting of all the even elements of A, followed by all the odd 
+elements of A.
+You may return any answer array that satisfies this condition.
+
+Example 1:
+Input: [3,1,2,4]
+Output: [2,4,3,1]
+The outputs [4,2,3,1], [2,4,1,3], and [4,2,1,3] would also be accepted.
+*/
+
+/**
+ * Return an array of size *returnSize.
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+ /*reminder:
+ 1.do not forget to malloc an array for return 
+ 2.use two variable to check if the number is even, count them from different direction, one from the begin to check odd 
+ numbers and the other from the end to check even numbers, exchange the odd in front with even from the back.
+ */
+
+int* sortArrayByParity(int* a, int n, int* returnSize) {
+    int* p = (int *)malloc(sizeof(int)*n);
+    int i = 0;
+    int j = n - 1;
+    int temp;
+    while(i < j)
+    {
+        
+        while(a[i] % 2 == 0){
+            i++;
+        }
+        while(a[j] % 2 != 0){
+            j--;
+        }
+        if(i < j)  
+         {
+            temp = a[i];
+            a[i] = a[j];
+            a[j] = temp;
+            i++;
+            j--;
+        }
+    }
+    
+    for(i = 0; i < n; i++){
+        p[i] = a[i];
+    }
+    
+    *returnSize = n;
+    return p;
+
+}
+
