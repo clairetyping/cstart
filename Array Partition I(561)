@@ -1,0 +1,60 @@
+/*Given an array of 2n integers, your task is to group these integers into n pairs of integer, 
+say (a1, b1), (a2, b2), ..., (an, bn) which makes sum of min(ai, bi) for all i from 1 to n as large as possible.
+
+Example 1:
+Input: [1,4,3,2]
+Output: 4
+Explanation: n is 2, and the maximum sum of pairs is 4 = min(1, 2) + min(3, 4).
+
+Note:
+n is a positive integer, which is in the range of [1, 10000].
+All the integers in the array will be in the range of [-10000, 10000].
+*/
+
+/*reminder:
+1.convert the problem into another way.first step to order all the numbes from the smallest to the biggest.
+second step to add up the numbers in the odd position.the question requires to count out the maximum from minmium of n pairs 
+integer so if I sort all the numbers in order and add up all the odd pisition numbers that equals to pick up all the smaller 
+numbers from n pairs of integer and add them up then comes to the biggest numbers.
+2.when call the sort function use 0 as low number use n-1(pay attention) as high to order.
+*/
+
+int partition(int* a, int low, int high)
+{
+    int pivotkey;
+    int temp;
+    pivotkey = a[low];
+    while(low < high)
+    {
+        while(low < high && a[high] >= pivotkey)
+            high--;
+        temp = a[low];
+        a[low] = a[high];
+        a[high] = temp;
+        while(low < high && a[low] <= pivotkey)
+            low++;
+        temp = a[low];
+        a[low] = a[high];
+        a[high] = temp;
+    }
+    return low;
+}
+void sort(int* a, int low, int high)
+{
+    int pivot;
+    if(low < high)
+    {
+        pivot = partition(a,low,high);
+        sort(a,low,pivot-1);
+        sort(a,pivot+1,high);
+    }
+    
+}
+int arrayPairSum(int* a, int n) {
+    int i;
+    int sum = 0;
+    sort(a,0,n-1);
+    for(i = 0; i < n; i=i+2)
+        sum += a[i];
+    return sum;
+}
