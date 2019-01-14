@@ -34,6 +34,5 @@ int numJewelsInStones(char* j, char* s) {
              }
         }
     }
-    return count;
-    
+    return count;    
 }
