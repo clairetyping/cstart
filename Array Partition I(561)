@@ -47,8 +47,7 @@ void sort(int* a, int low, int high)
         pivot = partition(a,low,high);
         sort(a,low,pivot-1);
         sort(a,pivot+1,high);
-    }
-    
+    }    
 }
 int arrayPairSum(int* a, int n) {
     int i;
