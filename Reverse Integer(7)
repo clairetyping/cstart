@@ -41,8 +41,5 @@ int reverse(int x) {
             x /= 10;
            k++; 
         }
-   
-
-    return flag * i;
-
+   return flag * i;
 }
