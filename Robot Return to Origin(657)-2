@@ -1,0 +1,13 @@
+/*reminder:
+1.use '' out of the letter
+2.just count out if the opposite direction go to the same step, if up equals to down and left equals to right then return true
+code originally from https://leetcode.com/problems/robot-return-to-origin/discuss/212845/c-4ms-o(n)
+*/
+
+bool judgeCircle(char* moves)
+{
+    char t[128] = {0};
+    while(*moves)
+    t[*moves++]++;
+    return t['U'] == T['D'] && t['L'] == t['R'];
+}
