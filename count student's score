@@ -1,5 +1,7 @@
 #include <stdio.h>
 #define NUMBER 5
+/*use a two-dimensional array to count 5 students record in three courses.
+*/
 
 int high_score(int mb[5][3],int choice)
 {
