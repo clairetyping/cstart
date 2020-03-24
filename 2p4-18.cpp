@@ -3,7 +3,7 @@
 int main(void)
 {
     int x,y,ln;
-    printf("请输入三角形的层数：");
+    printf("please type in the layer of a triangle：");
     scanf("%d",&ln);
     for(x = 1; x <= ln; x++)
     {
