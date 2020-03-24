@@ -42,7 +42,9 @@ int main()
         printf("english：");
         scanf("%d",&m[i][2]);
     }
-    //print the highest score of each subject
+    
+    /*print the highest score of each subject
+    */
     printf("The highest chinese score：%d\n",high_score(m,0));
     printf("The highest math score：%d\n",high_score(m,1));
     printf("The highest english score：%d\n",high_score(m,2));
