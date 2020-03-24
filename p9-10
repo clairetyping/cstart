@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include  <string.h>
+//deleting all the numbers in the string
+void del_digit(char str[])
+{
+    int i = 0;
+    int j;
+    int n = strlen(str);
+    do{
+        if (str[i] >= '0' && str[i] <= '9'){
+            for(j = i; j < n; j++){
+                str[j] = str[j+1];
+            }
+            i = i-1;
+        }
+        i++;
+    }while(i < n);
+}
+
+int main()
+{
+    char st[40];
+    printf("please type in the string:");
+    scanf("%s",st);
+    del_digit(st);
+    printf("After deleting all the numbers the string is: %s",st);
+    return 0;
+}
